@@ -6,4 +6,6 @@ export interface customerInterface {
   other: string;
   cardNumber: number;
   avatar: string;
+  room?: String;
+  auth: Number;
 }

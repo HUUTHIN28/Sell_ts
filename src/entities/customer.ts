@@ -43,10 +43,6 @@ export class Custormer extends Model {
   @JoinColumn()
   auth: auth;
 
-  @ManyToOne(() => House)
-  @JoinColumn()
-  house: House;
-
   @OneToMany(() => ListMember, (list: any) => list.custormer)
   @JoinColumn()
   listMember: ListMember;

@@ -8,6 +8,7 @@ import {
   updateListMerberService,
 } from "../services/listMerber";
 import { strict } from "assert";
+import { set } from "../helper/redis";
 
 export const getListMerber = async (req: Request, res: Response) => {
   try {
@@ -22,6 +23,7 @@ export const getListMerber = async (req: Request, res: Response) => {
     };
 
     const getListMerber = await getAllListMerber(filter, pagination);
+    set(req.baseUrl, { data: getListMerber });
     return res.status(200).json({ mes: true, data: getListMerber });
   } catch {
     return res.status(400).json({ mes: false });

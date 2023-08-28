@@ -4,7 +4,7 @@ import { AppDataSource } from "../utils/database";
 const roomModule = AppDataSource.getRepository(Room);
 
 export const getAllRoom = async () => {
-  const roomlist = await roomModule.find();
+  const roomlist = await roomModule.find({});
   return roomlist;
 };
 

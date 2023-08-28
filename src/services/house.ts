@@ -12,13 +12,14 @@ export const getAllhouse = async (
   const house = await houseModule.find({
     select: {
       id: true,
-      name: true,
-      address: true,
-      phone: true,
     },
     where: data,
     relations: {
-      rooms: true,
+      rooms: {
+        roomService: {
+          service: true,
+        },
+      },
     },
     skip: pagination?.offset,
     take: pagination?.limit,

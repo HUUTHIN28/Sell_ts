@@ -4,10 +4,12 @@ import {
   PrimaryGeneratedColumn,
   ManyToOne,
   JoinColumn,
+  OneToMany,
 } from "typeorm";
 
 import Model from "./model";
 import { Room } from "./room";
+import { RoomService } from "./roomService";
 
 @Entity()
 export class Electricity extends Model {
@@ -27,7 +29,7 @@ export class Electricity extends Model {
   @JoinColumn()
   room: Room;
 
-  // @ManyToOne(() => auth, (user: any) => user.house)
+  // @ManyToOne(() =>auth, (user: any) => user.house)
   // user: auth;
 
   // @OneToMany(() => Room, (room: any) => room.house)

@@ -4,6 +4,7 @@ import houseRouter from "./house";
 import roomRouter from "./room";
 import custormerRouter from "./customer";
 import listMerberRouter from "./listMerber";
+import { get } from "../helper/redis";
 
 const routerIndex = express.Router();
 routerIndex.use("/user", userRouter);

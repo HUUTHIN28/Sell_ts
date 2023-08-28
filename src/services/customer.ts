@@ -4,9 +4,19 @@ import { customerInterface } from "../interfaces/customer";
 
 const customerModule = AppDataSource.getRepository(Custormer);
 
-export const postCustomerSeriver = async (data: customerInterface) => {
+export const postCustomerSeriver = async (data: any) => {
   const createCustomer = await customerModule.create(data);
   return await customerModule.save(createCustomer);
+};
+export const checkCustomerSeriver = async (idAuth: number) => {
+  const customer = await customerModule.findOne({
+    where: {
+      auth: {
+        id: idAuth,
+      },
+    },
+  });
+  return customer;
 };
 
 export const getCustomerService = async () => {
@@ -14,7 +24,6 @@ export const getCustomerService = async () => {
     relations: {
       room: true,
       auth: true,
-      house: true,
       listMember: true,
     },
   });

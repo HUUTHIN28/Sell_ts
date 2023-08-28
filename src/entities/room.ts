@@ -36,5 +36,5 @@ export class Room extends Model {
 
   @OneToMany(() => RoomService, (roomservice: any) => roomservice?.room)
   @JoinColumn()
-  roomService: RoomService;
+  roomService: RoomService[];
 }
